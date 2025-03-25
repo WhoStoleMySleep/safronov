@@ -1,7 +1,9 @@
+import React from "react";
 import Image from "next/image";
-import prisma from "@/lib/prisma";
+import { PrismaClient } from "@prisma/client";
 
 export default async function News() {
+  const prisma = new PrismaClient();
   const projects = await prisma.news.findMany();
 
   return (

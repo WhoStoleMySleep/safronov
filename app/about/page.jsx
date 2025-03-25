@@ -1,8 +1,9 @@
 import Image from "next/image";
 import { TbArrowUpRight } from "react-icons/tb";
-import prisma from "@/lib/prisma";
+import { PrismaClient } from "@prisma/client";
 
 export default async function About() {
+  const prisma = new PrismaClient();
   const users = await prisma.user.findMany();
 
   return (
